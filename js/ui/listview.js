@@ -20,9 +20,10 @@ define(function(require, exports, module) {
         initialize:function(owner,options){
             var that = this;
             ListView.superclass.initialize.apply(that);
-            var template = Handlebars.compile(owner.html());
+            var template = Handlebars.compile(owner.andSelf().html());
             var data = options.method;
             var html = template(data);
+            
             that.owner = $(html);
             //
             that.owner.find('canvas.i-arrow').length && (function(){
@@ -30,8 +31,12 @@ define(function(require, exports, module) {
             })();
             //
             options.container && (function(){
-               that.owner.appendTo(options.container); 
+                that.owner.appendTo(options.container);
             })();
+
+            //这里需要重写优化
+            that.owner.find('div.payMethod-body').remove();
+
         }
     });
 	module.exports = ListView;

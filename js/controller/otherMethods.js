@@ -82,7 +82,8 @@ define(function(require, exports, module) {
                                 data = data || {};
                                 data.payMethods = data.payMethods || [];
                                 $.each(data.payMethods,function(index,method){
-                                    new ListView(that.ui_templates.clone().find('div.payMethod'),{
+                                    var template = that.ui_templates.clone().find('div.payMethod').andSelf();
+                                    new ListView(that.ui_templates.clone().find('div.payMethod').andSelf().remove('div.payMethod-body'),{
                                         container : $('#otherPayMethods'),
                                         method : method
                                     });
@@ -91,7 +92,7 @@ define(function(require, exports, module) {
                             complete:function(data){
                                 $('#otherPayMethods').slideDown();
                             }
-                        })
+                        });
                     })();
                 }                                
             }            
@@ -105,6 +106,25 @@ define(function(require, exports, module) {
 
             that.domContext = domContext;
             that.data_model = _.clone(that.options.data_model);
+
+            //to be review and develop
+            $('.button-dropdown-skin').live('click',function(){
+                $.ajax({
+                    url:'/wapCashier/ajax_processor.json',
+                    method:'GET',
+                    dataType:'json',
+                    success:function(data){
+                        data = data || {};
+                        $.each(data.bankList || [],function(index,bank){
+                            console.log(bank);
+                        });
+                    },
+                    complete:function(data){
+                        console.log('complete');
+                    }                                    
+                });
+            });
+
 
             !that.options.pay && console.log('config error');
             $(that.domContext).bind('checkuse',function(e,params){

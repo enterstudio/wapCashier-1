@@ -15,10 +15,25 @@ define(function(require, exports, module) {
         	events:{
         		use:function(params){
                     var that = this;
+                    params = params || {};
                     var plan = that.options.pay.getPlan();
 
-                    //console.log('coupon');
-                    var payAmount = 20;
+                    //to be review and develop
+                    var payAmount = 0;
+                    var coupons = $('#hbContainer input[name=coupon]');//红包集合
+                    var coupon_list = '';
+                    var coupon_amount = 0;
+                    $.each(coupons,function(index,coupon){
+                        if (coupon.checked) {
+                            coupon_list += coupon.value + ';';
+                            coupon_amount += parseFloat(coupon.getAttribute('data-hb')) || 0;
+                        }
+                    });
+                    payAmount = coupon_amount;
+                    //
+
+
+
                     //console.log(that.data_model.cardId);
                     
                     if(params.behavior === 'manual'){//判断是否人工操作,如果是,那么滚到到红包card
@@ -44,6 +59,7 @@ define(function(require, exports, module) {
         		},
                 'check':function(params){
                     var that = this;
+                    params = params || {};
                     $(that.domContext).attr({disabled:false});
 
                     that.fireEvent('unuse');
@@ -105,46 +121,7 @@ define(function(require, exports, module) {
             });
             //
             $('#coupon-ok').live('click',function(){
-
-                //todo:一些交互操作之后,触发check事件来确定本方案所需支付金额
-                //$(that).fireEvent('check');
-                //...
-
-                var coupons = $('#hbContainer input[name=coupon]');//红包集合
-                var coupon_list = '';
-                var coupon_amount = 0;
-                $.each(coupons,function(index,coupon){
-                    //console.log(coupon);
-                    if (coupon.checked) {
-                        coupon_list += coupon.value + ';';
-                        coupon_amount += parseFloat(coupon.getAttribute('data-hb')) || 0;
-                    }
-                });
-                //console.log(coupon_list);
-                //console.log(coupon_amount);
-
-                //选择红包,进行确认
-                /**
-                var _coupon_list = '';
-                var _coupon_amount = 0;
-                _coupons.forEach(function (o) {
-                    if (o.checked) {
-                        _coupon_list += o.value + ';';
-                        _coupon_amount += parseFloat(o.getAttribute('data-HB')) || 0;
-                    }
-                });
-                if (_coupon_list == '') {
-                    hb_cb.attr('checked', false);
-                    _data('coupon_amount', 0);
-                    _data('coupon_list', 0);
-                } else {
-                    _data('coupon_amount', _coupon_amount);
-                    _data('coupon_list', _coupon_list);
-                    _rule('hb');
-                }
-                //
-                scrollCard0();
-                */
+                that.fireEvent('check',{mode:'active'});
                 (function(){//scrollCard0();
                     that.scrollCards.id = 0;
                     that.scrollCards.scrollToPos(0);
