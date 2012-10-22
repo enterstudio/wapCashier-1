@@ -20,6 +20,7 @@ define(function(require, exports, module) {
                     //console.log('coupon');
                     var payAmount = 20;
                     //console.log(that.data_model.cardId);
+                    
                     if(params.behavior === 'manual'){//判断是否人工操作,如果是,那么滚到到红包card
                         that.scrollCards.scrollToPos(that.data_model.cardId);  
                     }
@@ -103,7 +104,25 @@ define(function(require, exports, module) {
                 }
             });
             //
-            $('#coupon-ok').bind('click',function(){
+            $('#coupon-ok').live('click',function(){
+
+                //todo:一些交互操作之后,触发check事件来确定本方案所需支付金额
+                //$(that).fireEvent('check');
+                //...
+
+                var coupons = $('#hbContainer input[name=coupon]');//红包集合
+                var coupon_list = '';
+                var coupon_amount = 0;
+                $.each(coupons,function(index,coupon){
+                    //console.log(coupon);
+                    if (coupon.checked) {
+                        coupon_list += coupon.value + ';';
+                        coupon_amount += parseFloat(coupon.getAttribute('data-hb')) || 0;
+                    }
+                });
+                //console.log(coupon_list);
+                //console.log(coupon_amount);
+
                 //选择红包,进行确认
                 /**
                 var _coupon_list = '';
@@ -129,10 +148,22 @@ define(function(require, exports, module) {
                 (function(){//scrollCard0();
                     that.scrollCards.id = 0;
                     that.scrollCards.scrollToPos(0);
-                })()
+                })();
             });
-            $('#coupon-cancel').bind('click',function(){
+            $('#coupon-cancel').live('click',function(){
                 //取消
+                //
+                //
+                (function(){//scrollCard0();
+                    that.scrollCards.id = 0;
+                    that.scrollCards.scrollToPos(0);
+                })();
+                /**
+                hb_cb.attr('checked', false);
+                _init_hb();
+                //
+                scrollCard0();
+                */
             });
 
 

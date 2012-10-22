@@ -187,6 +187,40 @@ define(function(require, exports, module) {
             self.adjust();
             if(AI.UA.system !== 'android' && AI.UA.system !== 'windows'){self.adaptediOS();}
             */
+           
+
+
+            /**
+             * 扩展iOS和Android事件, 这块需要重新设计考虑 位置迁移
+             */
+            $.ievents = 'touchstart touchend touchmove touchcancel '+ 
+                         'gesturestart gestureend gesturechange '+ 
+                         'orientationchange '+ 
+                         'webkitTransitionStart webkitTransitionEnd webkitAnimationStart webkitAnimationEnd '+ 
+                         'storage ';
+                         
+            $.each($.ievents.split(' '),function (i,eventName){
+                $.fn[eventName] = function (data,fn){
+                    //当设备旋转时，自动将orientationchange事件与resize事件同步
+                    if(eventName === 'orientationchange'){
+                        $(window).resize(data,fn);
+                    }
+                    
+                    if(fn == null){
+                        fn = data;
+                        data = null;
+                    }
+                    
+                    return arguments.length > 0 ? this.bind(eventName,data,fn) : this.trigger(eventName);
+                };
+                
+                if($.attrFn){
+                    $.attrFn[eventName] = true;
+                }
+            });
+            //
+
+
         }
     });
 	module.exports = ScrollCards;
