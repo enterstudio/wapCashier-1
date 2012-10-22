@@ -108,7 +108,7 @@ define(function(require, exports, module) {
             that.data_model = _.clone(that.options.data_model);
 
             //to be review and develop
-            $('.button-dropdown-skin').live('click',function(){
+            $('.button-dropdown-skin').live('click',function(e){
                 $.ajax({
                     url:'/wapCashier/ajax_processor.json',
                     method:'GET',
@@ -116,7 +116,14 @@ define(function(require, exports, module) {
                     success:function(data){
                         data = data || {};
                         $.each(data.bankList || [],function(index,bank){
-                            console.log(bank);
+                            var temp = that.ui_templates.find('div.payMethod>div.payMethod-body').clone();
+                            var template = Handlebars.compile(temp.get(0).outerHTML);
+                            var data = {
+                                bankname:bank.text || '',
+                                bankurl:bank.url || ''
+                            };
+                            var html = template(data);
+                            $(e.target).closest('div.payMethod').append($(html)).find('div.payMethod-body').removeClass('hide');
                         });
                     },
                     complete:function(data){
@@ -124,6 +131,7 @@ define(function(require, exports, module) {
                     }                                    
                 });
             });
+            //....
 
 
             !that.options.pay && console.log('config error');
