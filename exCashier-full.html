@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--这是新的页头-->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="HandheldFriendly" content="true" />
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0;" name="viewport" />
+		<meta content="yes" name="apple-mobile-web-app-capable" />
+		<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+		<meta content="telephone=no" name="format-detection" />
+		<meta content="email=no" name="format-detection" />
+		<link charset="utf-8" type="text/css" href="https://a.alipayobjects.com/u/css/201210/1Q9eXvmOs8.css" rel="stylesheet" />
+        <link href="http://wapcashier.stable.alipay.net/img/touch/startup.png" rel="apple-touch-icon-precomposed" />
+		<script charset="utf-8" type="text/javascript" src="http://assets.m96.alipay.net/wapcashier/jquery/0.9.0/jquery.js"></script>
+		<script charset="utf-8" type="text/javascript" src="http://assets.m96.alipay.net/wapcashier/widget/0.9.0/widget.js"></script>
+		<script charset="utf-8" type="text/javascript" src="http://assets.m96.alipay.net/wapcashier/alipayComponent/0.9.0/alipayComponent.js"></script>
+		<script charset="utf-8" type="text/javascript" src="http://assets.m96.alipay.net/wapcashier/validator/0.9.0/validator.js"></script>
+		<!-- 安全支付标示 -->
+				
+		<title>收银台-高端版-支付宝</title>
+
+    </head>
+    <body>
+	    <noscript><section class="noScript">需开启javascript功能，才能正常使用手机支付宝。<a href="/home/nojstop.htm?awid=aIIPr25ny4RKXt3CPWSzpkbvvfN0Xrwap" >查看如何开启</a></section></noscript>
+		<!--CMS 系统公告 开始-->
+        <!-- CMS:/wapcashier/common/system_announces.vm开始:/wapcashier/common/system_announces.vm -->
+  <!--<div style="color:#FF6600;padding:0 8px;">10月9日1:50至3:30进行系统维护，期间部分银行无法开通快捷支付服务，已开通快捷支付的银行卡仍可正常付款。</div>-->
+<!-- CMS:/wapcashier/common/system_announces.vm结束:/wapcashier/common/system_announces.vm -->		<!--CMS 系统公告 结束-->
+		        <div class="logo padding-LR-6px" id="top" data-status="noNav">
+				
+		<a href="http://wap.stable.alipay.net/index.htm?awid=aIIPr25ny4RKXt3CPWSzpkbvvfN0Xrwap"><img src="http://wapcashier.stable.alipay.net/img/touch/logo.png" alt="支付宝高端版" style="width:81px;height:37px;" /></a>
+		<span>收银台</span>
+	
+</div>
+        	
+    			<!-- aIIPr25ny4RKXt3CPWSzpkbvvfN0Xrwap -->
+<div class="scrollCards-container">
+   <div class="scrollCards">
+	<div role="card">
+
+	
+
+	<section class="simple-area margin-LR-6px J_SlideCase">
+		        <div class="J_content">
+        	<article class="productName">
+        		商品：<p>taobao11</p>
+        	</article>
+							<article class="productName">来自：<p>淘宝网</p></article>
+			        	<p class="productName">应付：<mark class="t-color-orange">100.00</mark>元  &nbsp;&nbsp;
+							<a href="http://wapcashier.stable.alipay.net/cashier/exCashier.htm?orderId=8301b894e239d78478952f3080ee889e&awid=aIIPr25ny4RKXt3CPWSzpkbvvfN0Xrwap">刷新价格</a>
+						</p>
+        </div>
+		</section>
+
+		
+		
+		
+						
+	<div class="gradient-area margin-LR-6px">
+		<form id="paymentForm" method="post" action="http://wapcashier.stable.alipay.net/cashier/trade_payment.htm?orderId=8301b894e239d78478952f3080ee889e&awid=aIIPr25ny4RKXt3CPWSzpkbvvfN0Xrwap" autocomplete="off">
+			
+				<input type="hidden" name="orderId" value="8301b894e239d78478952f3080ee889e"/>
+    	    	    	    	<section>
+    	<article>
+    					    <input type="hidden" name="coupon_quantity" value="2"/>
+	
+	<input type="hidden" name="balance_to_pay" value=""/>
+	    <input type="hidden" name="available_amount" value="80.34"/>
+	<p>当前账户：平安二（18903200003）</p>
+	
+		
+		    	    	    	
+    		    		    			
+    				<label for="ye"><input type="checkbox" id="ye" value="80.34" disabled="disabled" /><span>可用余额：<mark class="ye t-color-green">80.34</mark>元</span></label>
+    			
+    		    	
+    			
+				
+		<label for="hb"><input type="checkbox" id="hb" data-cardId="card-hb" disabled="disabled"/><span id="hb_cb_text">使用红包<mark class="t-color-red">（2个）</mark></span></label>
+					
+			
+						
+		<label for="jfb"><input id="jfb" type="checkbox" data-cardId="card-jfb" disabled="disabled"/><span id="jfb_cb_text">使用集分宝</span></label>
+					
+		
+    	    	
+    	    	    	    	    				
+	<input type="hidden" name="kj_amount" value="100.00"/>
+	
+    	<label for="kj_cb"><input id="kj_cb" type="checkbox" checked="checked" /><span id="kj_cb_text">使用支付宝快捷支付</span></label>
+
+	<select id="kj_select" name="cardInfo" class="margin-B-8px">
+		       																										
+								  
+		    			  			  		      <option value="DEBIT_KATONG|CMB|87988046725|none|" hasChargeFee="false" bankCode="CMB"  isDiscount="false"  campaignId="" selected="selected" >招商银行(尾号8565)
+				 			  </option>
+		    			
+											
+								  
+		    			  <option value="CREDIT_CARD_EXPRESS|CITIC|87988046829|none|"  hasChargeFee="false" bankCode="CITIC"  isDiscount="false"  campaignId="" >中信银行信用卡(尾号3333)
+				 			  </option>
+						
+											
+								  
+		    			  <option value="CREDIT_CARD_EXPRESS|CITIC|87988046788|none|"  hasChargeFee="false" bankCode="CITIC"  isDiscount="false"  campaignId="" >中信银行信用卡(尾号9999)
+				 			  </option>
+						
+											
+								  
+		    			  <option value="CREDIT_CARD_EXPRESS|ABC|201206114637587777198141|none|"  hasChargeFee="false" bankCode="ABC"  isDiscount="false"  campaignId="" >农行信用卡(尾号7777)
+				 			  </option>
+						
+											
+								  
+		    			  <option value="DEBIT_CARD_EXPRESS|CCB|1209030000027838|none|"  hasChargeFee="false" bankCode="CCB"  isDiscount="false"  campaignId="" >建行储蓄卡(尾号2214)
+				 			  </option>
+						
+			</select>
+	<p id="J_kjError" class="error hide"></p>
+	
+    	    	
+    	    		<input type="hidden" name="_form_token" value="FFY1gnZ61BH0wena4PXwiTDIoo74g8qJ"/>
+    	
+    	    	<input type="hidden" name="action" value="pay"/>
+    	    	<input type="hidden" name="pay_amount" value="100.00"/>
+    	    	<input type="hidden" name="coupon_list" value=""/>
+    	        <input type="hidden" name="coupon_amount" value=""/>
+    	        <input type="hidden" name="point_amount" value="" />
+    	        <input type="hidden" name="availablePoint" value="10"/> 
+
+		        <input type="hidden" name="fromMainPage" value="true"/> 
+
+    	    		
+    	    	    	    			<div style="width:100%;height:1px;margin-bottom:8px;margin-top:8px;background-color:#D5D5D5;overflow:hidden;"></div>
+    	<div class="payMoney find-password-container">
+			
+
+<aside id="pay_result_text">	
+
+	<!-- 加上 集分宝足够 -->
+				<p>快捷支付：<mark class="t-size-16px">100.00</mark>元</p>
+		</aside>
+
+		</div>	
+															
+
+
+		<div id="pwd_box" >
+	  		<div class="fm-item">
+		  <div class="fm-error">    
+</div>
+		  <input type="password" name="paymentPassword" id="password" placeholder="请输入支付密码" />
+		</div>
+		<p class="t-right mg-b8"> <a href="http://wap.stable.alipay.net/user/findPayPass.htm?action=retrievePayPwUI&awid=aIIPr25ny4RKXt3CPWSzpkbvvfN0Xrwap">找回支付密码</a> </p>	  	  	  	  
+	  <div class="button-OK-skin"><input id="J_submit_payForm" type="submit" class="button-OK"  value="确认付款"  /></div>
+	</div>
+
+<script type="text/javascript">
+AI(function () {
+    var config = {
+        'form': '#paymentForm',
+        'rules': {
+            '[name=paymentPassword]': {
+                desc: '支付密码',
+				minLen:6,
+				maxLen:20
+            },
+            '[name=tokenPassword]': {
+                desc: '宝令'
+            }
+        },
+    };
+    new AI.Widget.Validator(config);
+});
+</script>
+		
+    	</article>
+    	</section>
+		</form>
+		</div>
+		
+		<input type="hidden" name="needOpenChannels" value= />
+
+	
+						<input type="hidden" name="AjaxUrl" value="/cashier/ajax_processor.json?awid=aIIPr25ny4RKXt3CPWSzpkbvvfN0Xrwap&fromMainPage=true" />  
+<input type="hidden" name="awid" value="aIIPr25ny4RKXt3CPWSzpkbvvfN0Xrwap" />  
+
+
+	
+    <div class="payMethod">
+       <div id="J_other_pay_method_trigger" class="button-dropdown-skin">
+            <button class="button-dropdown" data-role="payMethodTrigger">
+               <span id="other_pay_method_text">您还可以使用其他付款方式</span>
+			   			   
+            <canvas id="payTypeMenuIcon" width="20" height="20" class="arrow"></canvas>
+            <script>
+              var canvas = document.querySelector('#payTypeMenuIcon'),
+                  context = canvas.getContext('2d'),
+                  arcColor = '#8192ab';
+              
+              //绘制圆
+              context.beginPath();
+              context.arc(canvas.width/2,canvas.height/2,10,0,2*Math.PI,false);
+              context.fillStyle = arcColor;
+              context.fill();
+              
+              //绘制左箭头
+              context.beginPath();
+              context.translate(canvas.width/2+1,canvas.height/2);
+              context.rotate(Math.PI/4);
+              context.fillStyle = '#fff';
+              context.fillRect(-5,1,7,2);
+              
+              //绘制右箭头
+              context.rotate(Math.PI/-2);
+              context.fillStyle = '#fff';
+              context.fillRect(-3,0,7,2);
+            </script>
+    		
+            </button>
+          </div>
+          <div id="J_other_pay_method_body" class="payMethod-body">
+            <span class="payMethod-body-shadow"></span>
+          </div>
+    </div>
+
+		
+			<div class="button-dropdown-skin">
+		<button class="button-dropdown" data-role="payMethodTrigger">您可能需要</button>
+</div>
+
+<div class="payMethod-body" role="show">
+	<div><a href="http://wap.stable.alipay.net/personal/applyPeerPay.htm?tradeNo=2012101900001000760000012834&awid=aIIPr25ny4RKXt3CPWSzpkbvvfN0Xrwap" >找人代付</a></div>
+</div>
+
+		</div>
+
+		<div role="card" id="card-hb">
+<section class="simple-area margin-LR-6px" role="hb" id="hbContainer">
+	
+                       <details class="ap-he-webkitBox">
+               <input name="coupon" id="1365365" type="checkbox" value="1365365" data-isMerge="true" data-HB="1.00" />
+               <summary style="margin-left:10px;">
+               <p>1：1.00元 </p>
+                        <p>到期时间：2012-10-26 11:22:27</p>
+               </summary>
+           </details>
+    	           <details class="ap-he-webkitBox">
+               <input name="coupon" id="1365364" type="checkbox" value="1365364" data-isMerge="true" data-HB="10.00" />
+               <summary style="margin-left:10px;">
+               <p>10：10.00元 </p>
+                        <p>到期时间：2012-11-03 11:21:50</p>
+               </summary>
+           </details>
+    	        
+            </section>
+        <section class="ap-he-trigger-bottom">
+          <article class="wp7_twoButton">
+            <a href="#" class="button-OK-skin" id="hb-ok"><span class="button-OK">确定</span></a>
+            <span class="ap-he-trigger-bottom-j"></span>
+            <a id="hb-cancel" href="javascript:void(0)" class="button-regular"><span>取消</span></a>
+        </article>
+    
+</section>
+</div>	
+		<div role="card" class="hide" id="card-jfb">
+      <section class="simple-area margin-LR-6px" role="jfb" id="jfbContainer">
+        <details>
+        <p>可用集分宝：10 个</p>
+        <p id="jfb_error" class="error hide"></p>
+          <span class="textFieldContainer"><input id="jfb_value" type="text" value="" /></span>
+          <p>请输入您要使用的数量，100个集分宝抵扣1元</p>
+        </details>
+      </section>
+      <section class="ap-he-trigger-bottom">
+        <article class="wp7_twoButton"> 
+			<a href="#" class="button-OK-skin" id="jfb-ok"><span class="button-OK">确定</span></a> 
+			<span class="ap-he-trigger-bottom-j"></span> 
+			<a id="jfb-cancel" href="javascript:void(0)" class="button-regular"><span>取消</span></a> </article>
+      </section>
+</div>
+	
+  </div>
+</div>
+
+<div id='J_um_mob' style="display:none"></div>
+
+<script type="text/javascript">
+var umidSetCookieLaLink = "http://mobileumidprod.stable.alipay.net/la.htm";
+var umidSetCookieDcLink = "http://mobileumidprod.stable.alipay.net/dc.htm";
+var token = "P99207f3c40167f6340f951adaa007fc4";
+
+(function(host) {
+   var properties = ['innerWidth', 'innerHeight', 'outerWidth', 'outerHeight', 'screenX', 'screenY', 'availWidth', 'availHeight', 'colorDepth', 'width', 'height'],
+      values = [];
+
+   for(var i = 0, len = properties.length; i < len; i++) {
+      var p = properties[i];
+      values.push(host[p] || '-');
+   }
+   var method = host.encodeURIComponent || host.escape;
+   param = method(values.join('|'));     
+   var render = umidSetCookieDcLink + "?token=" + token;
+   if(navigator.userAgent.indexOf('AppleWebKit') > 0 && navigator.vendor && navigator.vendor.indexOf('Apple') !== -1) {     
+      render = umidSetCookieLaLink + "?token=" + token;   
+   }      
+   var url=render+"&jsInfo="+param; 
+   if(navigator.userAgent.indexOf('AppleWebKit') > 0 && navigator.vendor && navigator.vendor.indexOf('Apple') !== -1) {  
+   document.getElementById('J_um_mob').innerHTML = '<iframe src='+url+' width="0" height="0" frameborder="0"/>';
+   }else{
+   document.getElementById('J_um_mob').innerHTML = '<img src='+url+' width="0" height="0" frameborder="0"/>';
+   }
+})(this);
+</script>
+<noscript>
+<img src='http://mobileumidprod.stable.alipay.net/dc.htm?token=P99207f3c40167f6340f951adaa007fc4' width="0" height="0" />
+</noscript>
+
+
+
+	    <script charset="utf-8" type="text/javascript" src="http://assets.m96.alipay.net/wapcashier/cashier/0.9.0/cashier.js"></script>
+		<!-- cashier/tile/foot_top.vm -->
+<footer class="page-footer">
+			<a href="http://wapcashier.stable.alipay.net/cashier/exCashier.htm?awid=aIIPr25ny4RKXt3CPWSzpkbvvfN0Xrwap&orderId=8301b894e239d78478952f3080ee889e&theme=st">返回标准版</a>
+		<a href="http://wap.stable.alipay.net/index.htm?awid=aIIPr25ny4RKXt3CPWSzpkbvvfN0Xrwap">首页</a>
+	<a href="http://wap.stable.alipay.net/help/help.htm?awid=aIIPr25ny4RKXt3CPWSzpkbvvfN0Xrwap">帮助</a>
+	<a href="http://wap.stable.alipay.net/help/feedback.htm?awid=aIIPr25ny4RKXt3CPWSzpkbvvfN0Xrwap">反馈</a>
+	<a href="#top">回顶部</a>
+	<p>
+		版权所有 2004-2012 支付宝
+	</p>
+	<div style="color:#BBD3E2;font:12px arial;text-align:center;">wapcashier.stable.alipay.net</div>
+</footer>
+<script>
+  try{
+    if(AI.UA.system === 'android'){
+	    fixAndroidPlaceHolderbug();
+	  }
+	  
+	  window.onload = function (){
+	    setTimeout(function(){
+	      window.scrollTo(0,1);
+	    },0);
+	    Alipay.detectOrien.regEventToWindow();
+	  };
+  }catch(e){
+    
+  }
+</script>
+
+		<!-- debug=true -->
+    </body>
+</html>

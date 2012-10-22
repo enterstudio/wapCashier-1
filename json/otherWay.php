@@ -1,0 +1,3 @@
+<?php
+echo '{"errorMessage":"","memo":"","payMethods":[{"discount":true,"discountText":"惠","name":"信用卡快捷支付","status":"GET_CREDIT_CARD"},{"discount":false,"discountText":"","name":"储蓄卡快捷支付","status":"GET_DEBIT_CARD"},{"discount":false,"discountText":"","name":"手机网银","status":"GET_MOBILE_BANK"},{"discount":false,"discountText":"","name":"储蓄卡语音支付","status":"GET_IVRPAY"},{"discount":false,"discountText":"","name":"其他方式","status":"GET_PHONE_CARD"}],"recent":null,"resultStatus":"100","returnExCashier":null}';
+?>

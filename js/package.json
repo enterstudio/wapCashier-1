@@ -1,0 +1,13 @@
+{
+    "name": "araleHelper",
+    "version": "1.0.0",
+    "dependencies": {
+        "$": "$",
+        "handlebars": "1.0.0",
+        "base": "#base/0.9.16/base"
+    },
+    "output": {
+        "name.js": ".",
+        "name2.js": ['n1.js', 'n2.js']
+    }
+}

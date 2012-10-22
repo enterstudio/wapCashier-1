@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--这是新的页头-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="HandheldFriendly" content="true" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0;" name="viewport" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<meta content="email=no" name="format-detection" />
+<link charset="utf-8" type="text/css" href="http://localhost:8000/wapCashier/wapCashier.css" rel="stylesheet" />
+<!--link charset="utf-8" type="text/css" href="http://localhost:8000/wapCashier/fix.css" rel="stylesheet" /-->
+<link href="http://wapcashier.stable.alipay.net/img/touch/startup.png" rel="apple-touch-icon-precomposed" />
+<script charset="utf-8" id="seajsnode" src="http://assets.dev.alipay.net/static/arale/seajs/1.2.1/??sea.js"></script>
+
+<script>
+    seajs.config({
+        alias: {
+          '~'         : 'http://assets.dev.alipay.net',
+          'arale'     : 'http://assets.dev.alipay.net/static/arale',
+          'alipay'    : 'http://assets.dev.alipay.net/static/alipay',
+          'handy'     : 'http://assets.dev.alipay.net/static/handy',
+          '$'         : 'jquery/1.7.2/jquery',
+          '$-debug'   : 'jquery/1.7.2/jquery-debug',
+          'jquery'    : 'jquery/1.7.2/jquery'
+        },
+        base:'http://assets.dev.alipay.net/static/handy'
+    });
+</script>
+<title>收银台-高端版-支付宝</title>
+</head>
+<body>
+
+<noscript><section class="noScript">需开启javascript功能，才能正常使用手机支付宝。<a href="#" >查看如何开启</a></section></noscript>
+<div class="logo padding-LR-6px" id="top" data-status="noNav"> <a href="#"><img src="http://wapcashier.stable.alipay.net/img/touch/logo.png" alt="支付宝高端版" style="width:81px;height:37px;" /></a> <span>收银台</span> </div>
+<div class="scrollCards-container">
+  <div id="scrollCards" class="scrollCards">
+      <div class="main-card" role="card">
+        <section id="orderDetail" class="simple-area J_SlideCase">
+          <div class="J_content" style="position:relative;">
+            <article class="ui-order-col order-name">
+                <strong>淘宝网 | 民生分期 - 使用集分宝</strong>
+            </article>          
+            <p class="productName">应付：
+              <mark class="t-color-orange">607.00</mark>
+              元  &nbsp;&nbsp; <a href="#">刷新价格</a> </p>
+            <section class="orderDetail" style="display:none;">
+              <article class="productName"> 商品名称：
+                <p>民生分期 - 使用集分宝</p>
+              </article>
+              <article class="productName">来自：
+                <p>淘宝网</p>
+              </article>
+            </section>
+            <canvas id="orderDetail-trigger" width="20" height="20" class="i-arrow"  style="position:absolute;right:5px;bottom:5px;"></canvas>
+            <!--a href="#" class="orderDetail-trigger" style="position:absolute;right:5px;bottom:5px;">展开</a-->
+          </div>
+        </section>
+        <section style="padding:0 10px;border-radius:4px;color:#999;background:#f1f1f1;border-bottom:1px solid #dedede;line-height:30px;">
+          <p>当前账户：想当当（alexyan@1.com）</p>
+        </section>
+
+        <!--------DiscountTips.vm ---------->
+        <section class="simple-area J-discountTip">
+          <article class="tip-info">
+            <span class="i-info"></span>
+            <p>使用优惠银行<span class="t-orange">全额支付</span>，可享受该银行的优惠。</p>
+          </article>
+        </section>
+
+
+        <div class="gradient-area">
+          <form id="paymentForm" method="post" action="#" autocomplete="off">
+
+            <!-------判断有无支付能力------>
+            <input type="hidden" name="needOpenChannels" value="true" />
+
+            <input type="hidden" value="10" name="availablePoint" />
+            <input type="hidden" value="66.00" name="pay_amount" />
+            <input type="hidden" value="" name="point_amount" />
+            <input type="hidden" value="0" name="balance_to_pay">
+            <input type="hidden" value="0" name="coupon_amount">
+            <input type="hidden" value="70" name="available_amount">
+            <section>
+              <article>
+
+                <aside id="pay_result_text">            
+                  
+                </aside>
+
+                <div class="pay-method">
+                  <label for="couponPay">
+                    <input id="couponPay" type="checkbox" class="pay-Method" data-model="{'model':'couponPay','amount':10,'available':3,'cardId':'card-coupon','showTxt':{'use':'红包抵扣:{{payAmount}}元','unuse':'红包(3个)'}}" disabled />
+                    <span>红包(3个)</span>
+                  </label>
+                </div>
+                <div class="pay-method">
+                  <label for="pointPay">
+                    <input id="pointPay" type="checkbox" class="pay-Method" data-model="{'model':'pointPay','available':1,'showTxt':{'use':'集分宝抵扣:10个({{payAmount}}元)','unuse':'集分宝:10个(1.00元)'},'cardId':'card-coupon'}" disabled checked/>
+                    <span>集分宝:10个(1.00元)</span>
+                  </label>
+                </div>
+                <!--div class="pay-method">
+                  <label for="expressPay">
+                    <input id="expressPay" type="checkbox" class="pay-Method" data-model="{'model':'ExpressPay'}" disabled/>
+                    <span>使用支付宝快捷支付</span>
+                    <select id="kj_select" name="cardInfo" class="margin-B-8px">
+                    </select>
+                  </label>
+                </div-->
+                <div class="pay-method">
+                  <label for="balancePay">
+                    <input id="balancePay" type="checkbox" class="pay-Method" data-model="{'model':'balancePay','available':80.34,'showTxt':{'use':'余额付款:{{payAmount}}元(可用余额:80.34元)','unuse':'可用余额:80.34元'}}" disabled />
+                    <span>可用余额:10.00元</span>
+                  </label>
+                </div>
+                <div class="pay-method">
+                  <label for="expressPay">
+                    <input id="expressPay" type="checkbox" class="pay-Method" data-model="{'model':'expressPay','showTxt':{'use':'使用银行卡付款:{{payAmount}}元','unuse':'使用银行卡'}}" disabled/>
+                    <span>使用银行卡</span>
+                  </label>
+                  <div>
+                    <select id="bankcards" disabled style="float:left;width:auto;">
+                      <option>招商银行信用卡 -（1111）</option>
+                    </select>
+                    <a style="display:block;height:50px;line-height:50px;" id="addBankcard" href="#">添加卡</a>
+                  </div>
+                  <div>
+                    <div class="fm-item">
+                      <div class="fm-error"> </div>
+                      <input type="password" name="paymentPassword" id="password" placeholder="支付密码" />
+                    </div>
+                    <p class="t-right mg-b8"> <a href="#">找回密码</a> </p>
+                    <div class="button-OK-skin"  style="width:100%">
+                      <input id="J_submit_payForm" type="submit" class="button-OK"  value="确认付款"/>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </section>
+          </form>
+          <section>
+            <article>
+              <div class="pay-method">
+                <label for="otherWay">
+                  <input id="otherWayPay" type="checkbox" class="pay-Method"  data-model="{'model':'otherWayPay','showTxt':{'use':'使用其它付款方式:{{payAmount}}元','unuse':'使用其它付款方式'}}" autocomplete="off" data-url="/wapCashier/json/otherWay.php" disabled/>
+                  <span id="otherWay_text">使用其它付款方式</span>
+                </label>
+              </div>
+            </article>
+          </section>
+        </div>
+        <section id="otherPayMethods" style="display:none;">
+        </section>
+        <div class="payMethod">
+          <div id="J_other_pay_method_trigger" class="button-dropdown-skin">
+            <button class="button-dropdown" data-role="payMethodTrigger"> <span id="other_pay_method_text">您可能需要</span>
+            <canvas id="payTypeMenuIcon" width="20" height="20" class="i-arrow"></canvas>
+            </button>
+          </div>
+          <div class="payMethod-body" role="show">
+            <div><a href="#">找人代付</a></div>
+          </div>
+          <div class="payMethod-body" role="show">
+            <div><a href="#">返回淘宝</a></div>
+          </div>
+        </div>
+      </div>
+      <!--红包确认card-->
+      <div role="card" id="card-coupon">
+        <section class="simple-area margin-LR-6px" role="hb" id="hbContainer">
+          <details class="ap-he-webkitBox">
+            <input name="coupon" id="1365365" type="checkbox" value="1365365" data-isMerge="true" data-HB="1.00" />
+            <summary style="margin-left:10px;">
+              <p>1：1.00元 </p>
+              <p>到期时间：2012-10-26 11:22:27</p>
+            </summary>
+          </details>
+          <details class="ap-he-webkitBox">
+            <input name="coupon" id="1365364" type="checkbox" value="1365364" data-isMerge="true" data-HB="10.00" />
+            <summary style="margin-left:10px;">
+              <p>10：10.00元 </p>
+              <p>到期时间：2012-11-03 11:21:50</p>
+            </summary>
+          </details>
+        </section>
+        <section class="ap-he-trigger-bottom">
+          <article class="wp7_twoButton">
+            <a href="#" class="button-OK-skin" id="coupon-ok"><span class="button-OK">确定</span></a>
+            <span class="ap-he-trigger-bottom-j"></span>
+            <a id="coupon-cancel" href="javascript:void(0)" class="button-regular"><span>取消</span></a>
+          </article>
+        </section>
+      </div>  
+
+
+  </div>
+</div>
+
+<script type="text/template" id="ui-templates">
+  <div class="payMethod">
+    <div id="J_other_pay_method_trigger" class="button-dropdown-skin">
+      <button class="button-dropdown" data-role="payMethodTrigger"> <span id="other_pay_method_text">{{name}}</span>
+        <canvas id="payTypeMenuIcon" width="20" height="20" class="i-arrow"></canvas>
+      </button>
+    </div>
+  </div>
+</script>
+
+<footer class="page-footer"> 
+  <p> 版权所有 2004-2012 支付宝 </p>
+  <a href="#">首页</a> 
+  <a href="#">安全退出</a> 
+  <a href="#top">返回顶部</a>  
+  <div style="color:#BBD3E2;font:12px arial;text-align:center;">productchannel.ui.alipay.net</div>
+</footer>
+<script type="text/javascript">
+/**
+ * cashier.vm相关引用文件
+ * #set($layout = "cashier/layout/cashier_new.vm")
+ * $tile.setTemplate("cashier:touch/orderDetailTile.vm").setParameter("cashierOrder",$!cashierOrder).setParameter("isShow",'true').setParameter("isShowRefreshPrice", "true")
+ * $tile.setTemplate("cashier:touch/mainPagErrorMsg.vm").setParameter("errorCode",$!errorCode).setParameter("errorMsg",$!errorMsg).setParameter("cashierOrder",$!cashierOrder)
+ * $tile.setTemplate("cashier:touch/discountTips.vm").setParameter("cashierOrder",$!cashierOrder).setParameter("paymentViewModel",$!paymentViewModel)
+ * $tile.setTemplate("cashier:touch/accountPaymentTile.vm").setParameter("cashierOrder",$!cashierOrder).setParameter("viewModel",$!paymentViewModel)
+ * $tile.setTemplate("cashier:touch/cardPaymentTile.vm").setParameter("cashierOrder",$!cashierOrder).setParameter("viewModel",$!paymentViewModel)
+ * $tile.setTemplate("cashier:touch/paymentTips.vm").setParameter("cashierOrder",$!cashierOrder).setParameter("viewModel",$!paymentViewModel)
+ * $tile.setTemplate("cashier:touch/securityProdTile.vm").setParameter("cashierOrder",$!cashierOrder).setParameter("security",$!paymentViewModel.cashierSecurityPolicy).setParameter("showThisTile",$!paymentViewModel.paymentVisibilityInfo.canViewSecurity).setParameter("noPassword","1") 
+ * $tile.setTemplate("cashier:touch/disablePaymentTile.vm").setParameter("cashierOrder",$!cashierOrder).setParameter("paymentViewModel",$!paymentViewModel)
+ * $tile.setTemplate("cashier:touch/otherPayTypes.vm").setParameter("cashierOrder",$!cashierOrder).setParameter("paymentViewModel",$!paymentViewModel).setParameter("cashierViewModel",$!cashierViewModel).setParameter("fromMainPage", "true")
+ * #parse("/cashier/screen/touch/paymentHelp.vm")
+ * $tile.setTemplate("cashier:touch/chooseCoupon.vm").setParameter("cashierOrder",$!cashierOrder).setParameter("viewModel",$!paymentViewModel)  
+ * $tile.setTemplate("cashier:touch/choosePoint.vm").setParameter("cashierOrder",$!cashierOrder).setParameter("viewModel",$!paymentViewModel)
+ * $tile.setTemplate("home:umidTile.vm")
+ */
+
+
+//接收VM层变量,统一挂载至gloadVars对象
+var globalVars = {
+  needOpenChannels:true
+};
+//
+seajs.config({
+    alias: {
+      'zepto'         : 'zepto/1.0.0/zepto',
+      'underscore'    : 'underscore/1.4.2/underscore',
+      'backbone'      : 'backbone/0.9.2/backbone',
+      'base'          : 'base/0.9.16/base',
+      'class'         : 'class/0.9.2/class',
+      'iScroll'       : 'scrollView/0.9.2/scrollView',
+      'handlebars'    : 'handlebars/1.0.0/handlebars',
+      'validator'     : 'validator/0.8.7/validator',
+      'json'          : 'json/1.0.2/json'
+    }
+});
+var jsRes = ['jquery','http://localhost:8000/wapCashier/js/init'];
+seajs.use(jsRes || [],function($,WapCashier){
+  var wapCashier = new WapCashier({
+    ui_templates:$('#ui-templates')
+  });
+});
+
+</script>
+</body>
+</html>
